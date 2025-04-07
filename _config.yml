@@ -25,11 +25,7 @@ description: End-to-end customized AI solution provider
 github_username: whathemelon2025
 
 # Google Analytics
-analytics:
-  provider: "google-gtag"
-  google:
-    tracking_id: "G-226JQHRV6C"
-    anonymize_ip: false # default
+google_analytics: G-226JQHRV6C
 
 # Build settings
 remote_theme: jekyll/minima
