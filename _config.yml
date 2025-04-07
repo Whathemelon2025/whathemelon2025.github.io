@@ -25,7 +25,11 @@ description: End-to-end customized AI solution provider
 github_username: whathemelon2025
 
 # Google Analytics
-google_analytics: G-226JQHRV6C  # 替換為您的 Google Analytics 4 測量 ID
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: G-226JQHRV6C
+    anonymize_ip: false # default
 
 # Build settings
 remote_theme: jekyll/minima
