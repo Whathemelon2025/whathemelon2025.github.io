@@ -28,7 +28,7 @@ github_username: whathemelon2025
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: G-226JQHRV6C
+    tracking_id: "G-226JQHRV6C"
     anonymize_ip: false # default
 
 # Build settings
