@@ -1,0 +1,68 @@
+---
+layout: post
+title:  "Automated Lung Cancer Screening Software"
+date:   2023-05-31 00:00:00 +0800
+categories: vision
+---
+**Ti-Lung**: An end-to-end AI system designed to automate lung cancer screening using low-dose CT (LDCT) images. The solution integrates multiple **CNN models** to extract thoracic LDCT images from PACS systems and generate semi-structured reports. The AI system assists in preliminary assessments by highlighting suspicious regions that may be difficult to detect with the naked eye, ultimately supporting radiologists in making accurate diagnoses. Its performance is reliable, with an **AUC of 0.95** and a **sensitivity of 92%**.
+
+---
+## Key Concepts
+##### AI Model Requirements:
+- The AI's performance must be at least comparable to that of resident physicians to provide a **meaningful clinical reference**.
+- **Multi-model integration** is required to simulate a radiologist’s decision-making process and deliver comprehensive screening results.
+- The model must offer **explainability** to demonstrate the basis of its predictions, enhancing trust and usability.
+
+###### Data Challenges & Solutions
+- **Low-Resolution Imaging**  
+  LDCT scans used for health screenings have lower resolution, making AI-based interpretation more challenging. In some cases, distinguishing between imaging artifacts and actual lesions is difficult even for human experts.
+- **Limited Data Per Hospital**  
+  A dataset from a single hospital is often insufficient for robust AI model development. To enhance generalizability, data from multiple hospitals were combined for training, while an independent hospital dataset was used for testing.
+
+##### Deployment Considerations:
+- **On-Premise Preference**  
+  Many hospitals prefer offline AI solutions due to data privacy concerns, although local computing resources may be limited.
+- **Solution**  
+  The system supports both local server deployment (integrated into the hospital’s network) and cloud-based connectivity for flexibility.
+- **Seamless Integration**  
+  The AI solution is integrated with PACS and HIS systems, ensuring an intuitive workflow for radiologists without requiring additional installation or complex operations.
+
+##### Goals & Impact:
+- **Reducing Workload**  
+  A single LDCT scan consists of 50–100+ images, making manual review time-consuming. The AI system pre-filters cases, reducing the number of critical slices to review from 50+ to around 1–20, allowing radiologists to focus on high-risk findings.
+- **Enhanced Detection**  
+  Subtle nodules that are difficult to detect by the naked eye can be identified with AI-assisted second opinions, improving diagnostic accuracy.
+- **Standardized Reporting**  
+  The system generates semi-structured reports following a unified template, improving data consistency and facilitating better data management.
+  
+---
+
+## Architecture & Implementation
+
+##### 1. Automated Image Retrieval & AI Analysis:
+- The system automatically fetches LDCT scans from PACS and completes AI inference within 5 minutes, returning results to the HIS for review.
+
+##### 2. Secure Deployment:
+- All AI processing and API services are deployed within the hospital’s internal network, ensuring full offline operation to maintain patient data privacy.
+
+##### 3. AI Model Pipeline: 
+- **Detection:** Identifies potential lesions.
+- **Segmentation:** Draws precise lesion boundaries.
+- **Classification:** Assesses malignancy risk.
+- **False Positive (FP) Reduction:** Filters out low-probability false positives to improve specificity.
+- **Adaptive Model Fine-Tuning:** A general model is deployed initially, followed by retraining on-site to optimize performance for the specific imaging protocol of each hospital.
+
+##### 4. Report Generation:
+- Image processing using OpenCV provides valuable diagnostic information such as lesion size and shape.
+- Extracted findings are converted via NLP into semi-structured text reports.
+
+
+---
+## Skill & Tools
+- **Programming:** Python, Pytorch, Flask, Docker, Linux
+- **Deep Learning:** 3D Convolutional Neural Networks (CNNs) – ResNet, YOLO
+- **Computer Vision:** OpenCV (Segmentation, Detection, Classification)
+
+---
+## Visuals
+> Please refer to the [official webpage](https://taihaomed.com/en/product/ti-lung) or contact sales.

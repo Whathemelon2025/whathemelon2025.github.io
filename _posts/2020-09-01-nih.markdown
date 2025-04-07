@@ -1,0 +1,48 @@
+---
+layout: post
+title:  "Medical Images Online Database"
+date:   2022-09-30 00:00:00 +0800
+categories: data
+---
+A proof-of-concept (PoC) platform to collect **CT/MRI images** and store them in a centralized data lake. The website offers **data browsing** capabilities with an integrated **DICOM viewer** that provides common features such as measurement and annotation. The database includes patient information, textual reports, and images, making it a valuable resource for future research such as federated learning. An online annotation system also allows for data enhancement through labeling for supervised learning.
+
+---
+
+## Key Concepts
+
+##### Security
+- **RBAC:** Role-based access control is implemented using usernames and passwords, along with email verification and subscription features.
+- **Anonymization & Encryption:** Sensitive patient data is concealed using anonymization and encryption techniques.
+
+##### User Experience
+- Designed for non-IT users (Physicians and Healthcare researcher), the platform includes an integrated DICOM viewer similar to hospital PACS systems.
+- Intuitive upload and download functionalities ensure ease of use.
+
+##### Data Diversity
+- A single patient may have multiple CT/MRI image sets; a unique ID is generated to correctly match patient records.
+- Textual reports vary in quality due to potential typos, grammatical issues, and individual documentation habits.
+
+---
+## Architecture
+
+- **Server & Deployment**  
+  Hosted on a Linux server, the system is containerized using Docker and built with Django for both the web interface and API services.
+  
+- **Database**  
+  A PostgreSQL database stores initial data uploaded via the API. Users can also upload data through an RBAC-protected client channel.
+  
+- **Front-End Integration**  
+  The website features an integrated DICOM viewer for retrieving and viewing images. It supports annotations and version control, allowing users to add annotations or modify content with different versions stored.
+  
+- **Additional Features**  
+  Batch download functionality using filters is provided to support future research purpose.
+
+---
+
+## Skills & Tools
+- **Programming:** Python, Linux, Docker, Django  
+- **Preprocessing:** PyDICOM, OpenCV, Pandas, NLTK  
+- **Database:** PostgreSQL  
+- **DICOM Viewer:** OHIF
+
+

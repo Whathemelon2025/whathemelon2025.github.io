@@ -1,0 +1,7 @@
+---
+layout: post
+title:  "Data Solution on AWS"
+date:   2024-09-01 00:00:00 +0800
+categories: data
+---
+> still in progress.

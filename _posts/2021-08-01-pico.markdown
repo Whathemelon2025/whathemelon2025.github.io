@@ -1,0 +1,70 @@
+---
+layout: post
+title:  "Medical Literature Keywords Highlighting"
+date:   2021-08-31 00:00:00 +0800
+categories: gen
+---
+Annotating PICO **(Population/Intervention/Comparison/Outcome)** keywords in randomized clinical trials to **accelerate literature review in evidence-based medicine**. The original BERT model was modified into a **BERT-BiLSTM-CRF** architecture by **pretraining** on a clinical trials corpus and **fine-tuning** on a PICO-labeled open-source dataset. A dual output layer is employed to generate both **sentence-level and span-level PICO classifications**. Compared to directly implementing a BERT model, this approach improved the **F1 score from 78% to 83%**.
+
+----
+## Key Concepts
+##### Model Structure Modification
+- **BERT as a General-Purpose Model:**  
+  BERT is a general-purpose attention model. However, because domain-specific knowledge is crucial in healthcare, unlabeled raw clinical trials serve as an excellent foundation for pretraining.
+- **Parallel Processing:**  
+  BERT's multi-head attention mechanism enables efficient parallel processing, which benefits from GPU acceleration and CUDA.
+- **Enhancing Long-Distance Memory:**  
+  Incorporating a sequence-to-sequence model with BiLSTM helps enhance the model's long-distance memory—a known weakness in BERT.
+- **Ensuring Label Continuity:**  
+  A CRF layer is used to maintain labeling continuity, ensuring that span-level PICO classifications result in coherent word segments corresponding to the PICO categories.
+
+##### Training Approach
+- **Multi-Task Learning:**  
+  Since PICO annotation occurs at different levels, multi-task learning is implemented. The same pretrained BERT encoder is shared while separate output paths generate different prediction formats.
+- **Cloud-Based Model Training:**  
+  Large corpus datasets are pre-trained using cloud computing power.
+
+> Note: This work was originally part of my master thesis completed a few years ago. Since then, BERT has seen many advanced versions, and ChatGPT was launched a year and a half after my graduation. :(
+
+---
+## Architecture & Implementation
+
+<figure>
+  <img src="/assets/images/pico.png">
+  <figcaption><center>Model Training Strategy</center></figcaption>
+</figure>
+
+##### 1. Data Acquisition
+- Crawled a clinical trials corpus from [ClinicalTrials.gov](https://clinicaltrials.gov/), gathering approximately 400k XML files.
+- Downloaded 2 [PICO-labeled dataset](https://github.com/jind11/PubMed-PICO-Detection) for fine-tuning.
+
+##### 2. Preprocessing
+- Applied BERT tokenization to generate subword vocabularies.
+- Indexed words and matched them with corresponding labels for supervised learning.
+
+##### 3. Model Training
+- Migrated the processed dataset to cloud storage.
+- **Pretraining:**  
+  Trained the BERT encoder on the large clinical trials corpus.
+- **Fine-Tuning:**  
+  Performed multi-task fine-tuning with a BiLSTM and CRF on the encoder (with the encoder frozen), achieving simultaneous sentence-level and span-level PICO annotation.
+
+---
+## Skills & Tools
+- **Programming:** Python, Linux
+- **Natural Language Processing (NLP):** NLTK, Hugging Face Transformers
+- **Modeling:** TensorFlow, multi-GPU distribution (Tesla V100)
+- **Visualization:** Matplotlib, Seaborn
+- **Cloud:** [NCHC](https://www.nchc.org.tw/?langid=2)
+
+---
+## Visuals
+<center><figure>
+  <img src="/assets/images/pico_pretrain.png" width=500px>
+  <figcaption><center>Pretrain (Masked LM)</center></figcaption>
+</figure>
+
+<figure>
+  <img src="/assets/images/pico_predict.png" width=500px>
+  <figcaption><center>Model Prediction</center></figcaption>
+</figure>

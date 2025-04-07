@@ -1,0 +1,51 @@
+---
+layout: post
+title:  "Business Intelligence Dashboard"
+date:   2024-09-01 00:00:00 +0800
+categories: data
+---
+An interactive dashboard designed for data analysis and visualization, providing insights into business trends and relationships as part of a business intelligence (BI) strategy. While many BI tools exist today, their effectiveness is often limited by poor data management—operational data may be scattered across different departments and considered useless. This project demonstrates the workflow of implementing a dashboard, from consolidating open-source data to showcasing the potential of BI tools.
+
+---
+
+## Key Concepts
+
+##### Data Integration
+- **Multiple Data Sources:**  
+  Company data originates from various sources and must be integrated into a reliable data management system.
+- **Efficient Data Processing:**  
+  Due to the large volume of data, preprocessing is crucial to reduce hardware requirements. This involves ETL (Extract, Transform, Load) and filtering to convert data into an appropriate format for analysis.
+
+##### Benefits
+- **Comprehensive Overview:**  
+  The dashboard provides a holistic view of the company's performance through charts and interactive visualizations that also illustrate data correlations.
+- **Reusable & Automated Interface:**  
+  Interactive templates and UI enable repeated use and automatic updates (e.g., monthly), without the need for coding skills.
+
+---
+
+## Architecture
+
+1. **Data Acquisition:**  
+   Raw CSV data was downloaded from an open-source Brazilian e-commerce dataset on Kaggle.
+
+2. **ETL Process:**
+   - **Initial ETL (EDA):**  
+     Conduct exploratory data analysis (EDA) to understand the dataset’s volume and fields, then convert the data to Parquet as staging data.
+   - **Secondary ETL (Feature Engineering):**  
+     Perform feature engineering by adding new columns and joining categorical tables with different primary keys, then convert the data to CSV.
+
+3. **Data Visualization:**  
+   The processed data is imported into Tableau for visualization. Built-in formulas and components are used to create interactive visualizations.
+
+---
+
+## Skills & Tools
+- **Programming:** Python  
+- **BI Software:** Tableau
+
+---
+
+## Visuals
+> Demonstration in progress.
+

@@ -18,21 +18,36 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+title: WhatheMelon
+author:
+  email: whathemelongroup@gmail.com
+description: End-to-end customized AI solution provider
+github_username: whathemelon2025
+
+# Google Analytics
+google_analytics: G-226JQHRV6C  # 替換為您的 Google Analytics 4 測量 ID
 
 # Build settings
-theme: minima
+remote_theme: jekyll/minima
+minima:
+  skin: auto
+  navi-pages:
+    - data.markdown
+    - genAI.markdown
+    - visionAI.markdown
+    - mlops.markdown
+
+  social_links:
+    - name: LinkedIn
+      icon: linkedin
+      url: https://www.linkedin.com/in/kiansiang-ong
+    - name: GitHub
+      icon: github
+      url: https://github.com/whathemelon2025
+
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default.
