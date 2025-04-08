@@ -1,7 +1,65 @@
 ---
 layout: post
-title:  "on Cloud LLM"
+title:  "on Cloud Large Language Model"
 date:   2025-04-01 00:00:00 +0800
 categories: gen
 ---
-> still in progress.  
+A **cloud-based LLM application** providing API services in a low-code environment, making maintenance easier. The flexible infrastructure supports **high-end GPUs**, making it ideal for commercial applications such as customer service chatbots. The chatbot connects to an online database to **enhance domain knowledge** and **improve responses**, while also integrating with websites for personalized ad recommendations.
+
+---
+
+## Key Concepts
+
+##### Rapid Evolution of LLMs
+- The fast-paced advancement of AI makes cloud frameworks an effective way to switch models and stay up to date.
+- Paid APIs such as OpenAI can be leveraged for better performance.
+
+##### Advantages of Cloud Deployment
+- **Flexible Pricing Model**  
+  - Pay-as-you-go billing ensures cost predictability and control.  
+  - No upfront hardware costs—access industrial-grade GPUs (e.g., V100).  
+  - PoC-friendly development environment, allowing for faster iteration of startup ideas.  
+
+- **Scalable Architecture**  
+  - MLOps integration ensures a smooth transition from PoC to long-term projects.  
+  - Microservices offer high flexibility, making it easy to adapt to new AI trends like MCP.  
+  - Can function as a standalone API backend or integrate with third-party software (e.g., Slack) and web applications.  
+
+##### Limitations
+- **Requires Cloud Expertise**  
+  While designed as a low-code environment, familiarity with cloud services is still necessary.  
+- **Potential Cost Risks**  
+  Improper usage may lead to unnecessary expenses, requiring regular monitoring and evaluation.  
+
+---
+
+## Architecture & Implementation
+<center>
+<figure>
+  <img src="/assets/images/awschatbot.png" width=500px>
+  <figcaption>AWS Chatbot API Architecture (Simplified)</figcaption>
+</figure>
+</center>
+
+1. **User Interaction**  
+   - Users interact via web/mobile applications, triggering client requests based on specific actions.  
+
+2. **API Gateway**  
+   - Receives requests and routes them to appropriate API functions.  
+   - Returns AI-generated responses to the frontend.  
+
+3. **Lex (Conversational AI)**  
+   - Chatbot builder supporting text and voice-based interactions.  
+
+4. **Lambda (Query Processing & Prompt Engineering)**  
+   - Manages queries and directs them to the appropriate tools for optimized AI responses.  
+
+5. **Augmentation Tools**  
+   - **DynamoDB:** NoSQL database storing user profiles, preferences, and chat history.  
+   - **Bedrock:** Foundation LLM with customization options for fine-tuning.  
+   - **Kendra:** Advanced search tool for retrieving relevant information:  
+     1. S3-stored FAQs provide standardized responses to common inquiries (e.g., business hours).  
+     2. Structured data like product catalogs enables precise product recommendations.  
+     3. Web crawlers fetch external information and provide relevant links.  
+
+> In some cases (filtered by Lambda), chatbot responses can be handled using FAQs instead of LLM-generated answers, reducing GPU usage.
