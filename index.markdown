@@ -5,9 +5,12 @@
 layout: home
 ---
 
-Hi, welcome to my portfolio—a dedicated space to showcase my previous projects. Here, you'll find overviews of the business goals, solution architectures, and skill sets behind each project. I specialize in end-to-end AI solutions, particularly in healthcare and fintech, drawing on years of research and development in AI/ML—including statistical machine learning, computer vision, and natural language processing. I have many details I'd like to share, so please feel free to explore the pages. 
+**Hi! Welcome to my project showcase.** I document my previous projects here, sharing my thought process, key considerations, and generalized architectures, along with the skills and tools I used. The actual solutions are often more comprehensive, with significant customizations based on client needs, which may not be displayed here.  
 
-If you'd like to discuss collaboration opportunities or have any questions, please email me.
+> Due to business privacy concerns, I avoid disclosing specific details as I’m not always certain about the boundaries.  
+
+I specialize in end-to-end AI solutions, particularly in healthcare and fintech, drawing from years of R&D in **AI/ML—including statistical machine learning, computer vision, and natural language processing**. My journey began with local development, but as cloud infrastructure demands grew, I shifted my focus to AWS as well. AI, data, and cloud technologies are vast fields, and I’m continuously expanding my expertise. If you spot any inaccuracies, feel free to reach out—I appreciate the feedback! I hope these projects offer valuable insights and inspiration.  
+
+If you're curious about more details or want to discuss collaboration opportunities, feel free to email me. Thanks!  
 
 > Some visualizations are still in progress—stay tuned.  
-> Due to business privacy, client information cannot be disclosed. 
